@@ -15,12 +15,12 @@
 	</collectiontypes>
 
 	<enumtypes>
-		<enumtype code="myEnum" >
+		<enumtype code="MyEnum" >
 			<value code="val1"/>
 			<value code="val2"/>
 			<value code="val3"/>
 		</enumtype>
-		<enumtype code="myDynamicEnum" dynamic="true" >
+		<enumtype code="MyDynamicEnum" dynamic="true" >
 			<value code="val1"/>
 			<value code="val2"/>
 			<value code="val3"/>
@@ -28,34 +28,67 @@
 	</enumtypes>
 
 	<maptypes>
-		<maptype code="myMap"
+		<maptype code="MyMap"
 				 argumenttype="java.lang.String"
 				 returntype="java.math.BigDecimal"/>
 	</maptypes>
 
 	<relations>
-		<relation code="one2many" localized="false">
-			<sourceElement type="myItem1" qualifier="item1" cardinality="one">
+		<relation code="One2many" localized="false">
+			<sourceElement type="MyItem1" qualifier="item1" cardinality="one">
 				<modifiers read="true" write="true" search="true" optional="true"/>
 			</sourceElement>
-			<targetElement type="myItem2"  qualifier="item2" cardinality="many">
+			<targetElement type="MyItem2"  qualifier="item2" cardinality="many">
 				<modifiers read="true" write="true" search="true" optional="true"/>
 			</targetElement>
 		</relation>
 
-		<relation code="many2many" localized="false">
+		<relation code="Many2many" localized="false">
 			<deployment table="item2item" typecode="11111"/>
-			<sourceElement type="myItem3" qualifier="items3" cardinality="many">
+			<sourceElement type="MyItem3" qualifier="items3" cardinality="many">
 				<modifiers read="true" write="true" search="true" optional="true"/>
 			</sourceElement>
-			<targetElement type="myItem4"  qualifier="items4" cardinality="many">
+			<targetElement type="MyItem4"  qualifier="items4" cardinality="many">
 				<modifiers read="true" write="true" search="true" optional="true"/>
 			</targetElement>
 		</relation>
 	</relations>
 	
 	<itemtypes>
-		<itemtype code="myItem1"  >
+		<itemtype code="ItemAllTypes" jaloclass="org.training.jalo.ItemAllTypes">
+			<deployment table="itemAllTypes" typecode="13777"/>
+			<attributes>
+				<attribute qualifier="name" type="java.lang.String">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="myEnum" type="MyEnum">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="myMap" type="MyMap">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="myBigDecimalList" type="MyBigDecimalList">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="one2Many" type="MyItem1">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="many2Many" type="MyItem3">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="one2One" type="MyItem4">
+					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
+		<itemtype code="MyItem1"  >
 			<deployment table="myItem1" typecode="13114"/>
 			<attributes >
 				<attribute qualifier="name" type="java.lang.String"  >
@@ -69,7 +102,7 @@
 			</attributes>
 		</itemtype>
 
-		<itemtype code="myItem2"  >
+		<itemtype code="MyItem2"  >
 			<deployment table="myItem2" typecode="13115"/>
 			<attributes >
 				<attribute qualifier="quantity" type="java.lang.Integer"  >
@@ -80,7 +113,7 @@
 		</itemtype>
 
 
-		<itemtype code="myItem3"  >
+		<itemtype code="MyItem3"  >
 			<deployment table="myItem3" typecode="13116"/>
 			<attributes >
 				<attribute qualifier="name" type="java.lang.String"  >
@@ -90,7 +123,7 @@
 			</attributes>
 		</itemtype>
 
-		<itemtype code="myItem4">
+		<itemtype code="MyItem4">
 			<deployment table="myItem4" typecode="13117"/>
 			<attributes >
 				<attribute qualifier="quantity" type="java.lang.Integer"  >
@@ -100,8 +133,5 @@
 			</attributes>
 		</itemtype>
 	</itemtypes>
-	
-
-
 
 </items>

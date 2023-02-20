@@ -1,0 +1,3 @@
+INSERT ItemAllTypes; name ; myEnum(code); MyMap     ; MyBigDecimalList
+                   ; Ilya ; val1        ; q->4:w->5 ; 45:478:36:25
+                   ; Egor ; val2        ; q->4:w->5 ; 457:48:367:5
