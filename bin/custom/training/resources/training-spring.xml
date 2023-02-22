@@ -87,5 +87,7 @@
     <bean id="contactRequestDao"
           class="org.training.dao.impl.DefaultContactRequestDao"
           parent="abstractItemDao"  />
-    
+    <bean id="trainingProductService" class="org.training.service.impl.TrainingProductServiceImpl"
+          parent="defaultProductService"/>
+    <alias alias="productService" name="trainingProductService"/>
 </beans>
