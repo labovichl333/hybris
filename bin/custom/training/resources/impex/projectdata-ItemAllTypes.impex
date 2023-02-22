@@ -1,3 +1,16 @@
-INSERT ItemAllTypes; name ; myEnum(code); MyMap     ; MyBigDecimalList
-                   ; Ilya ; val1        ; q->4:w->5 ; 45:478:36:25
-                   ; Egor ; val2        ; q->4:w->5 ; 457:48:367:5
+INSERT_UPDATE myItem4; code[unique = true]
+                     ; code_1
+
+INSERT_UPDATE myItem3; name[unique = true]
+                     ; name_1
+                     ; name_2
+                     ; name_3
+
+INSERT_UPDATE many2many; source(name)[unique = true]; target(code)[unique = true];
+                       ; name_1                     ; code_1
+                       ; name_2                     ; code_1
+
+
+INSERT_UPDATE itemAllTypes; name[unique = true]; myEnum(code); myMap     ; myBigDecimalList; one2One(code); item3(name)    ; many2many(source(name), target(code))
+                          ; Maks               ; val1        ; q->4,w->5 ; 45,478,36,25    ; code_1       ; name_1, name_2 ; name_1: code_1
+                          ; Egor               ; val2        ; q->4,w->5 ; 457,48,367,5    ; code_1       ; name_2         ; name_2: code_1

@@ -11,7 +11,7 @@
 	
 	
 	<collectiontypes>
-		<collectiontype code="myBigDecimalList" elementtype="java.math.BigDecimal" type="list"/>
+		<collectiontype code="MyBigDecimalList" elementtype="java.math.BigDecimal" type="list"/>
 	</collectiontypes>
 
 	<enumtypes>
@@ -52,6 +52,16 @@
 				<modifiers read="true" write="true" search="true" optional="true"/>
 			</targetElement>
 		</relation>
+
+		<relation code="ItemAllTypesRelation" localized="false">
+			<sourceElement type="ItemAllTypes" qualifier="itemAllTypes" cardinality="one">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</sourceElement>
+			<targetElement type="MyItem3"  qualifier="item3"  cardinality="many">
+				<modifiers read="true" write="true" search="true" optional="true"/>
+			</targetElement>
+		</relation>
+
 	</relations>
 	
 	<itemtypes>
@@ -70,20 +80,15 @@
 					<modifiers read="true" write="true" search="true" />
 					<persistence type="property"/>
 				</attribute>
-				<attribute qualifier="myBigDecimalList" type="MyBigDecimalList">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="one2Many" type="MyItem1">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="many2Many" type="MyItem3">
+				<attribute qualifier="MyBigDecimalList" type="MyBigDecimalList">
 					<modifiers read="true" write="true" search="true" />
 					<persistence type="property"/>
 				</attribute>
 				<attribute qualifier="one2One" type="MyItem4">
 					<modifiers read="true" write="true" search="true" />
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="many2many" type="Many2many">
 					<persistence type="property"/>
 				</attribute>
 			</attributes>
@@ -126,7 +131,7 @@
 		<itemtype code="MyItem4">
 			<deployment table="myItem4" typecode="13117"/>
 			<attributes >
-				<attribute qualifier="quantity" type="java.lang.Integer"  >
+				<attribute qualifier="code" type="java.lang.String"  >
 					<modifiers read="true" write="true" search="true"/>
 					<persistence type="property"/>
 				</attribute>
