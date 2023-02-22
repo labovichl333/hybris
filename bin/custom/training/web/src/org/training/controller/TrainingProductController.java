@@ -21,13 +21,12 @@ public class TrainingProductController {
 
 
     @GetMapping
-    public String showPage(@RequestParam(required = false) String code,
-                           @RequestParam(required = false) String name, Model model) {
+    public String showPage(@RequestParam(required = false) String code, Model model) {
         catalogService.setSessionCatalogVersion("electronicsProductCatalog", "Online");
 
         ProductModel product = null;
-        if (code != null && name != null) {
-            product = trainingProductService.getProductForCode(code, name);
+        if (code != null) {
+            product = trainingProductService.getProductForCode(code);
         }
         model.addAttribute("product", product);
         return "trainingProduct";

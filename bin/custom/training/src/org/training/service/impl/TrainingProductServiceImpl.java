@@ -19,7 +19,7 @@ public class TrainingProductServiceImpl extends DefaultProductService implements
 
 
     @Override
-    public ProductModel getProductForCode(String code, String name) {
+    public ProductModel getProductForCodeAndName(String code, String name) {
         final FlexibleSearchQuery query = new FlexibleSearchQuery("SELECT {pk} FROM {Product} WHERE "
                 + "{code}=?code AND {name} LIKE %?name%");
         query.addQueryParameter(Product.CODE, code);
@@ -32,6 +32,11 @@ public class TrainingProductServiceImpl extends DefaultProductService implements
             throw new AmbiguousIdentifierException("Product code and name is not unique!");
         }
         return result.getResult().get(0);
+    }
+
+    @Override
+    public ProductModel getProductForCode(String code) {
+        return getProductForCodeAndName(code,"AMD");
     }
     
 }
