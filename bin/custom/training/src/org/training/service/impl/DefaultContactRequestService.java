@@ -2,23 +2,20 @@ package org.training.service.impl;
 
 import de.hybris.platform.servicelayer.exceptions.AmbiguousIdentifierException;
 import de.hybris.platform.servicelayer.exceptions.UnknownIdentifierException;
-import de.hybris.platform.servicelayer.search.FlexibleSearchQuery;
-import de.hybris.platform.servicelayer.search.FlexibleSearchService;
-import de.hybris.platform.servicelayer.search.SearchResult;
+import org.training.dao.ContactRequestDao;
 import org.training.model.ContactRequestModel;
 import org.training.service.ContactRequestService;
 
 import javax.annotation.Resource;
+import java.util.List;
+
 public class DefaultContactRequestService implements ContactRequestService {
     @Resource
-    private FlexibleSearchService flexibleSearchService;
+    private ContactRequestDao contactRequestDao;
 
     public ContactRequestModel getContactRequest(final String sender) {
-        final String queryString = "SELECT {PK} FROM {ContactRequest} WHERE {sender} = ?sender";
-        final FlexibleSearchQuery query = new FlexibleSearchQuery(queryString);
-        query.addQueryParameter("sender", sender);
-        final SearchResult<ContactRequestModel> result = this.flexibleSearchService.search(query);
-        final int resultCount = result.getTotalCount();
+        final List<ContactRequestModel> result = contactRequestDao.findBySender(sender);
+        final int resultCount = result.size();
         if (resultCount == 0)
         {
             throw new UnknownIdentifierException(
@@ -32,7 +29,7 @@ public class DefaultContactRequestService implements ContactRequestService {
                             + " requests found!"
             );
         }
-        return result.getResult().get(0);
+        return result.get(0);
     }
 
 }
