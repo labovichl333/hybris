@@ -3,9 +3,8 @@
  */
 package org.training.service;
 
-public interface TrainingService
-{
-	String getHybrisLogoUrl(String logoCode);
+public interface TrainingService {
+    String getHybrisLogoUrl(String logoCode);
 
-	void createLogo(String logoCode);
+    void createLogo(String logoCode);
 }

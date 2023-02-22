@@ -6,137 +6,158 @@
 	ATTENTION: This is just an example file. You have to edit it according to your needs.
 -->
 
-<items 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-			xsi:noNamespaceSchemaLocation="items.xsd">
-	
-	
-	<collectiontypes>
-		<collectiontype code="MyBigDecimalList" elementtype="java.math.BigDecimal" type="list"/>
-	</collectiontypes>
-
-	<enumtypes>
-		<enumtype code="MyEnum" >
-			<value code="val1"/>
-			<value code="val2"/>
-			<value code="val3"/>
-		</enumtype>
-		<enumtype code="MyDynamicEnum" dynamic="true" >
-			<value code="val1"/>
-			<value code="val2"/>
-			<value code="val3"/>
-		</enumtype>
-	</enumtypes>
-
-	<maptypes>
-		<maptype code="MyMap"
-				 argumenttype="java.lang.String"
-				 returntype="java.math.BigDecimal"/>
-	</maptypes>
-
-	<relations>
-		<relation code="One2many" localized="false">
-			<sourceElement type="MyItem1" qualifier="item1" cardinality="one">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</sourceElement>
-			<targetElement type="MyItem2"  qualifier="item2" cardinality="many">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</targetElement>
-		</relation>
-
-		<relation code="Many2many" localized="false">
-			<deployment table="item2item" typecode="11111"/>
-			<sourceElement type="MyItem3" qualifier="items3" cardinality="many">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</sourceElement>
-			<targetElement type="MyItem4"  qualifier="items4" cardinality="many">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</targetElement>
-		</relation>
-
-		<relation code="ItemAllTypesRelation" localized="false">
-			<sourceElement type="ItemAllTypes" qualifier="itemAllTypes" cardinality="one">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</sourceElement>
-			<targetElement type="MyItem3"  qualifier="item3"  cardinality="many">
-				<modifiers read="true" write="true" search="true" optional="true"/>
-			</targetElement>
-		</relation>
-
-	</relations>
-	
-	<itemtypes>
-		<itemtype code="ItemAllTypes" jaloclass="org.training.jalo.ItemAllTypes">
-			<deployment table="itemAllTypes" typecode="13777"/>
-			<attributes>
-				<attribute qualifier="name" type="java.lang.String">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="myEnum" type="MyEnum">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="myMap" type="MyMap">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="MyBigDecimalList" type="MyBigDecimalList">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="one2One" type="MyItem4">
-					<modifiers read="true" write="true" search="true" />
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="many2many" type="Many2many">
-					<persistence type="property"/>
-				</attribute>
-			</attributes>
-		</itemtype>
-		<itemtype code="MyItem1"  >
-			<deployment table="myItem1" typecode="13114"/>
-			<attributes >
-				<attribute qualifier="name" type="java.lang.String"  >
-					<modifiers read="true" write="true" search="true" unique="true"/>
-					<persistence type="property"/>
-				</attribute>
-				<attribute qualifier="item4" type="myItem4"  >
-					<modifiers read="true" write="true" search="true" unique="true"/>
-					<persistence type="property"/>
-				</attribute>
-			</attributes>
-		</itemtype>
-
-		<itemtype code="MyItem2"  >
-			<deployment table="myItem2" typecode="13115"/>
-			<attributes >
-				<attribute qualifier="quantity" type="java.lang.Integer"  >
-					<modifiers read="true" write="true" search="true"/>
-					<persistence type="property"/>
-				</attribute>
-			</attributes>
-		</itemtype>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="items.xsd">
 
 
-		<itemtype code="MyItem3"  >
-			<deployment table="myItem3" typecode="13116"/>
-			<attributes >
-				<attribute qualifier="name" type="java.lang.String"  >
-					<modifiers read="true" write="true" search="true" unique="true"/>
-					<persistence type="property"/>
-				</attribute>
-			</attributes>
-		</itemtype>
+    <collectiontypes>
+        <collectiontype code="MyBigDecimalList" elementtype="java.math.BigDecimal" type="list"/>
+    </collectiontypes>
 
-		<itemtype code="MyItem4">
-			<deployment table="myItem4" typecode="13117"/>
-			<attributes >
-				<attribute qualifier="code" type="java.lang.String"  >
-					<modifiers read="true" write="true" search="true"/>
-					<persistence type="property"/>
-				</attribute>
-			</attributes>
-		</itemtype>
-	</itemtypes>
+    <enumtypes>
+        <enumtype code="MyEnum">
+            <value code="val1"/>
+            <value code="val2"/>
+            <value code="val3"/>
+        </enumtype>
+        <enumtype code="MyDynamicEnum" dynamic="true">
+            <value code="val1"/>
+            <value code="val2"/>
+            <value code="val3"/>
+        </enumtype>
+    </enumtypes>
+
+    <maptypes>
+        <maptype code="MyMap"
+                 argumenttype="java.lang.String"
+                 returntype="java.math.BigDecimal"/>
+    </maptypes>
+
+    <relations>
+        <relation code="One2many" localized="false">
+            <sourceElement type="MyItem1" qualifier="item1" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="MyItem2" qualifier="item2" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="Many2many" localized="false">
+            <deployment table="item2item" typecode="11111"/>
+            <sourceElement type="MyItem3" qualifier="items3" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="MyItem4" qualifier="items4" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+        <relation code="ItemAllTypesRelation" localized="false">
+            <sourceElement type="ItemAllTypes" qualifier="itemAllTypes" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement type="MyItem3" qualifier="item3" cardinality="many">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
+    </relations>
+
+    <itemtypes>
+        <itemtype code="ItemAllTypes" jaloclass="org.training.jalo.ItemAllTypes">
+            <deployment table="itemAllTypes" typecode="13777"/>
+            <attributes>
+                <attribute qualifier="name" type="java.lang.String">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="myEnum" type="MyEnum">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="myMap" type="MyMap">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="MyBigDecimalList" type="MyBigDecimalList">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="one2One" type="MyItem4">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="many2many" type="Many2many">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+        <itemtype code="MyItem1">
+            <deployment table="myItem1" typecode="13114"/>
+            <attributes>
+                <attribute qualifier="name" type="java.lang.String">
+                    <modifiers read="true" write="true" search="true" unique="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="item4" type="myItem4">
+                    <modifiers read="true" write="true" search="true" unique="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="MyItem2">
+            <deployment table="myItem2" typecode="13115"/>
+            <attributes>
+                <attribute qualifier="quantity" type="java.lang.Integer">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+
+        <itemtype code="MyItem3">
+            <deployment table="myItem3" typecode="13116"/>
+            <attributes>
+                <attribute qualifier="name" type="java.lang.String">
+                    <modifiers read="true" write="true" search="true" unique="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="MyItem4">
+            <deployment table="myItem4" typecode="13117"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <modifiers read="true" write="true" search="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype generate="true"
+                  code="ContactRequest"
+                  jaloclass="org.training.jalo.ContactRequest"
+                  extends="GenericItem"
+                  autocreate="true">
+            <deployment table="contactRequest" typecode="13778"/>
+            <attributes>
+                <attribute qualifier="message" type="java.lang.String">
+                    <description>Message</description>
+                    <modifiers initial="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="sender" type="java.lang.String">
+                    <description>Sender</description>
+                    <modifiers initial="true"/>
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+    </itemtypes>
+
 
 </items>

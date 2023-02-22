@@ -82,5 +82,14 @@
         <property name="mediaService" ref="mediaService"/>
         <property name="flexibleSearchService" ref="flexibleSearchService"/>
     </bean>
+
+    <bean id="contactRequestService" class="org.training.service.impl.DefaultContactRequestService">
+        <!-- setter injection example -->
+      <!--  <property name="modelService" ref="modelService"/>
+        <property name="mediaService" ref="mediaService"/>
+        <property name="flexibleSearchService" ref="flexibleSearchService"/>-->
+    </bean>
+
+
 			
 </beans>
