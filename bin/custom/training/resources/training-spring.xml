@@ -95,4 +95,7 @@
     <alias alias = "contactRequestFacade" name = "defaultContactRequestFacade" />
 
     <bean id="contactRequestConverter" class="org.training.converter.ContactRequestConverter"/>
+
+    <bean id="twiceDuplicateCode" class="org.training.attribute_handler.TwiceDuplicateCode">
+    </bean>
 </beans>
