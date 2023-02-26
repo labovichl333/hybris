@@ -178,7 +178,14 @@
                 </attribute>
             </attributes>
         </itemtype>
-
+        <itemtype code="TokenWrapper">
+            <deployment table="tokenWrapper" typecode="30271"/>
+            <attributes>
+                <attribute qualifier="token" type="java.lang.Integer">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
     </itemtypes>
 
 

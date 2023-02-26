@@ -14,3 +14,13 @@ INSERT_UPDATE many2many; source(name)[unique = true]; target(code)[unique = true
 INSERT_UPDATE itemAllTypes; name[unique = true]; myEnum(code); myMap     ; myBigDecimalList; one2One(code); item3(name)    ; many2many(source(name), target(code))
                           ; Maks               ; val1        ; q->4,w->5 ; 45,478,36,25    ; code_1       ; name_1, name_2 ; name_1: code_1
                           ; Egor               ; val2        ; q->4,w->5 ; 457,48,367,5    ; code_1       ; name_2         ; name_2: code_1
+
+
+INSERT_UPDATE TokenWrapper; token[unique = true]
+                          ; 12345
+
+INSERT_UPDATE CronJob; code[unique = true]  ; job(code)           ; singleExecutable; sessionLanguage(isocode)
+                     ; generateTokenCronJob ; generateNewTokenJob ; false           ; en
+
+INSERT_UPDATE Trigger; cronjob(code)[unique = true]; cronExpression
+                     ; generateTokenCronJob        ; 0 0/30 * * * *

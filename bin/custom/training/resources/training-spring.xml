@@ -108,5 +108,7 @@
         <property name="typeCode" value="ContactRequest"/>
     </bean>
 
+    <bean id="tokenWrapperDao" class="org.training.dao.impl.DefaultTokenWrapperDao" />
 
+    <bean id="generateNewTokenJob" class="org.training.job.GenerateNewTokenJob" parent="abstractJobPerformable"/>
 </beans>
