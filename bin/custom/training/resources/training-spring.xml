@@ -96,6 +96,17 @@
 
     <bean id="contactRequestConverter" class="org.training.converter.ContactRequestConverter"/>
 
-    <bean id="twiceDuplicateCode" class="org.training.attribute_handler.TwiceDuplicateCode">
+    <bean id="twiceDuplicateCode" class="org.training.attribute_handler.TwiceDuplicateCode"/>
+
+    <bean id="myTestClassEventListener" class="org.training.listener.MyTestClassEventListener"
+          parent="abstractEventListener"/>
+
+    <bean id="myTestClassInterceptor" class="org.training.interceptor.MyTestClassInterceptor"/>
+
+    <bean id="myTestClassInterceptorMapping" class="de.hybris.platform.servicelayer.interceptor.impl.InterceptorMapping">
+        <property name="interceptor" ref="myTestClassInterceptor"/>
+        <property name="typeCode" value="ContactRequest"/>
     </bean>
+
+
 </beans>
