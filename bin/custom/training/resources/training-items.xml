@@ -125,6 +125,9 @@
                     <modifiers read="true" write="true" search="true" unique="true"/>
                     <persistence type="property"/>
                 </attribute>
+                <attribute qualifier="history" type="localized:java.lang.String">
+                    <persistence type="property" />
+                </attribute>
             </attributes>
         </itemtype>
 
@@ -178,6 +181,7 @@
                 </attribute>
             </attributes>
         </itemtype>
+
         <itemtype code="TokenWrapper">
             <deployment table="tokenWrapper" typecode="30271"/>
             <attributes>

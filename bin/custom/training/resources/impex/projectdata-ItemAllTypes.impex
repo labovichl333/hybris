@@ -1,10 +1,10 @@
 INSERT_UPDATE myItem4; code[unique = true]
                      ; code_1
 
-INSERT_UPDATE myItem3; name[unique = true]
-                     ; name_1
-                     ; name_2
-                     ; name_3
+INSERT_UPDATE myItem3; name[unique = true]; history[lang = ru]; history[lang = en];
+                     ; name_1             ; простая история   ; simple history
+                     ; name_2             ; старая история    ; old history
+                     ; name_3             ; моя история       ; my history
 
 INSERT_UPDATE many2many; source(name)[unique = true]; target(code)[unique = true];
                        ; name_1                     ; code_1
