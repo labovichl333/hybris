@@ -190,9 +190,28 @@
                 </attribute>
             </attributes>
         </itemtype>
+        <itemtype code="StringLengthConstraint" extends="AttributeConstraint">
+            <attributes>
+                <attribute type="java.lang.Integer" qualifier="min">
+                    <description>Underflow value</description>
+                    <modifiers read="true" write="true" search="true" optional="false"
+                               initial="true" />
+                    <persistence type="property" />
+                </attribute>
+                <attribute type="java.lang.Integer" qualifier="max">
+                    <modifiers read="true" write="true" search="true" optional="false"
+                               initial="true" />
+                    <persistence type="property" />
+                </attribute>
+                <attribute qualifier="annotation" type="java.lang.Class" redeclare="true">
+                    <modifiers write="false" initial="true" optional="false"/>
+                    <defaultvalue>
+                        org.training.constraint.StringLength.class
+                    </defaultvalue>
+                </attribute>
+            </attributes>
+        </itemtype>
     </itemtypes>
-
-
 
 
 
