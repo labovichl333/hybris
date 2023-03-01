@@ -96,7 +96,7 @@
 
     <bean id="contactRequestConverter" class="org.training.converter.ContactRequestConverter"/>
 
-    <bean id="twiceDuplicateCode" class="org.training.attribute_handler.TwiceDuplicateCode"/>
+    <bean id="twiceDuplicateCode" class="org.training.handler.TwiceDuplicateCode"/>
 
     <bean id="myTestClassEventListener" class="org.training.listener.MyTestClassEventListener"
           parent="abstractEventListener"/>

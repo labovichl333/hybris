@@ -1,0 +1,2 @@
+INSERT_UPDATE MaxConstraint; id[unique = true]          ; severity(code, itemtype(code)); active; annotation                       ; descriptor(enclosingType(code), qualifier); message[lang = en]         ; value
+                           ; QuantityMustBeLessThan1000 ; ERROR:Severity                ; true  ; javax.validation.constraints.Max ; MyItem2:quantity                          ; int must be less than 1000 ; 999

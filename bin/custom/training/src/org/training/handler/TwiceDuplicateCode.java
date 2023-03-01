@@ -1,4 +1,4 @@
-package org.training.attribute_handler;
+package org.training.handler;
 
 import de.hybris.platform.servicelayer.model.attribute.AbstractDynamicAttributeHandler;
 import org.training.model.MyItem4Model;
