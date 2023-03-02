@@ -62,6 +62,15 @@
             </targetElement>
         </relation>
 
+        <relation code="Concert2Producer" localized="false">
+            <sourceElement qualifier="concerts" type="Concert" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </sourceElement>
+            <targetElement qualifier="producer" type="Producer" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true"/>
+            </targetElement>
+        </relation>
+
     </relations>
 
     <itemtypes>
@@ -208,6 +217,33 @@
                     <defaultvalue>
                         org.training.constraint.StringLength.class
                     </defaultvalue>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Producer" >
+            <deployment table="producers" typecode="30272"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="surname" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Concert" >
+            <deployment table="concerts" typecode="30273"/>
+            <attributes>
+                <attribute qualifier="code" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <persistence type="property"/>
                 </attribute>
             </attributes>
         </itemtype>

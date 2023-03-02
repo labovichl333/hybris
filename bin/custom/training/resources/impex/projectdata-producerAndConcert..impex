@@ -1,0 +1,7 @@
+INSERT_UPDATE Producer; code[unique = true]; name ; surname;
+                      ; P1                 ; Ilya ; Labovich
+                      ; P2                 ; Egor ; Voitko
+
+INSERT_UPDATE Concert; code[unique = true]; name     ; producer(code)
+                     ; C1                 ; concert1 ; P1
+                     ; C2                 ; concert2 ; P1

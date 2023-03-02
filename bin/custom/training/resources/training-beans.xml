@@ -63,4 +63,9 @@
 		<property name = "sender" type = "String" />
 	</bean>
 
+	<bean class="org.training.data.ProducerData">
+		<property name="name" type="String"/>
+		<property name="surname" type="String"/>
+	</bean>
+
 </beans>

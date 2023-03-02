@@ -111,4 +111,13 @@
     <bean id="tokenWrapperDao" class="org.training.dao.impl.DefaultTokenWrapperDao" />
 
     <bean id="generateNewTokenJob" class="org.training.job.GenerateNewTokenJob" parent="abstractJobPerformable"/>
+
+
+    <bean id="producerService" class="org.training.service.impl.DefaultProducerService"/>
+    <bean id="producerDao" class="org.training.dao.impl.DefaultProducerDao"/>
+
+    <bean id = "defaultProducerFacade" class ="org.training.facade.impl.DefaultProducerFacade" />
+    <alias alias = "producerFacade" name = "defaultProducerFacade" />
+
+    <bean id="producerConverter" class="org.training.converter.ProducerConverter"/>
 </beans>
