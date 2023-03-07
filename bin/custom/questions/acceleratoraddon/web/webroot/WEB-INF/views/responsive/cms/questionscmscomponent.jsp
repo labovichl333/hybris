@@ -6,8 +6,7 @@
     <c:if test="${empty product.questions}">
         <div>No questions yet.</div>
     </c:if>
-    <h1>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</h1>
-    <c:forEach items="${product.questions}" var="question" end="${questionsNumber}">
+    <c:forEach items="${product.questions}" var="question" begin="0" end="${questionsNumber-1}">
         <div class="questionsCMSComponent_question"> Question:</div>
         <div class="questionsCMSComponent_question_text">${question.question}</div>
         <div class="questionsCMSComponent_author">By ${question.questionCustomer}</div>
