@@ -53,6 +53,20 @@
 				</index>
 			</indexes>
 		</itemtype>
+		<itemtype code="QuestionsCMSComponent"
+				  extends="SimpleCMSComponent"
+				  jaloclass="com.myapp.questions.jalo.QuestionsCMSComponent">
+			<attributes>
+				<attribute qualifier="numberOfQuestionsToShow" type="java.lang.Integer">
+					<modifiers optional="false"/>
+					<defaultvalue>3</defaultvalue>
+					<persistence type="property"/>
+				</attribute>
+				<attribute qualifier="fontSize" type="java.lang.Integer">
+					<persistence type="property"/>
+				</attribute>
+			</attributes>
+		</itemtype>
 <!--
 		<itemtype generate="true"
 		   code="MyProduct"
