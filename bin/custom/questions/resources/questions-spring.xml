@@ -37,9 +37,6 @@
 	</bean>
 
 
-
-
-
 	<bean id="questionPopulator" class="com.myapp.questions.populator.QuestionPopulator"/>
 
 	<bean id="questionConverter" parent="abstractPopulatingConverter">
@@ -57,20 +54,10 @@
 		<property name="converter" ref="questionConverter"/>
 	</bean>
 
-	<alias name="defaultProductQuestionConfiguredPopulator" alias="productConfiguredPopulator"/>
-	<bean id="defaultProductQuestionConfiguredPopulator" parent="defaultProductConfiguredPopulator">
-		<property name="populators">
-			<map merge="true" key-type="de.hybris.platform.commercefacades.product.ProductOption">
-				<entry key="QUESTIONS" value-ref="productQuestionsPopulator"/>
-			</map>
-		</property>
-	</bean>
-
-
 
 
 		<bean parent="configurablePopulatorModification">
-			<property name="target" ref="productConfiguredPopulator" />
+			<property name="target" ref="productVariantConfiguredPopulator" />
 			<property name="keyType" value="de.hybris.platform.commercefacades.product.ProductOption" />
 			<property name="key" value="QUESTIONS" />
 			<property name="add" ref="productQuestionsPopulator" />
