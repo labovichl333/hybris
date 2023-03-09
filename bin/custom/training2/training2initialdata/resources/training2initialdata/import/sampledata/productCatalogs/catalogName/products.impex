@@ -4,7 +4,7 @@
 # ImpEx for Importing Products
 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
+$productCatalog=electronicsProductCatalog
 $productCatalogName=__PRODUCT_CATALOG_FULL_NAME__
 
 $catalogVersion=catalogversion(catalog(id[default=$productCatalog]),version[default='Staged'])[unique=true,default=$productCatalog:Staged]
@@ -14,3 +14,13 @@ $approved=approvalstatus(code)[default='check']
 
 # Insert Products
 INSERT_UPDATE Product;code[unique=true];$supercategories;manufacturerName;manufacturerAID;unit(code);ean;variantType(code);$catalogVersion;$approved
+
+
+INSERT_UPDATE Customer; uid[unique = true]; name
+                      ; ilya@mail.ru      ; Ilya Labovich
+                      ; egor@mail.ru      ; Egor Voitko
+
+INSERT_UPDATE Question; code[unique = true]; product(code, $catalogVersion); questionCustomer(uid); answerCustomer(uid); question  ; answer;
+                      ; Q1                 ; 23355                         ; anonymous            ;                    ; question1 ;
+                      ; Q2                 ; 899387                        ; ilya@mail.ru         ; egor@mail.ru       ; question2 ; answer2
+                      ; Q3                 ; 932577                        ; egor@mail.ru         ; anonymous          ; question3 ; answer3

@@ -19,4 +19,8 @@
 		<property name="answerCustomer" type="String"/>
 	</bean>
 
+	<enum class="de.hybris.platform.commercefacades.product.ProductOption">
+		<value>QUESTIONS</value>
+	</enum>
+
 </beans>
