@@ -1,0 +1,26 @@
+
+
+.questionsCMSComponent{
+    margin-left: 12px;
+    font-family: serif;
+}
+
+.questionsCMSComponent_title{
+    color: #003bb3;
+    font-family: serif;
+    font-size: 36px;
+    border-bottom-style: inset;
+}
+
+.questionsCMSComponent_question, .questionsCMSComponent_question_text, .questionsCMSComponent_answer{
+    font-weight: bold;
+}
+
+.questionsCMSComponent_answer{
+    margin-top: 12px;
+}
+
+.questionsCMSComponent_author{
+    font-style: italic;
+    font-size: revert;
+}
