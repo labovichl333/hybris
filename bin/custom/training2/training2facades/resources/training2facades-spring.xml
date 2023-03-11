@@ -182,4 +182,11 @@
 	</bean>
 
 	<bean id="genderData" class="com.stackextend.training2.facades.product.data.GenderData" scope="prototype"/>
+
+
+	<alias name="customSearchResultProductPopulator" alias="commerceSearchResultProductPopulator"/>
+	<bean id="customSearchResultProductPopulator"
+		  class="com.stackextend.training2.facades.populators.CustomSearchResultVariantProductPopulator"
+		  parent="variantCommerceSearchResultProductPopulator">
+	</bean>
 </beans>

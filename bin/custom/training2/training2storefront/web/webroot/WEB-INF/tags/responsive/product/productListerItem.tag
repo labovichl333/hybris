@@ -36,7 +36,7 @@
 					</c:forEach>
 				</div>
 			</c:if>
-
+			Questions count: ${product.questionCount}
 			<ycommerce:testId code="searchPage_price_label_${product.code}">
 				<div class="product__listing--price"><product:productListerItemPrice product="${product}"/></div>
 			</ycommerce:testId>
