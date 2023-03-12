@@ -4,12 +4,13 @@ import de.hybris.platform.commercefacades.product.data.ProductData;
 import de.hybris.platform.commercefacades.search.converters.populator.SearchResultVariantProductPopulator;
 import de.hybris.platform.commerceservices.search.resultdata.SearchResultValueData;
 
-import java.util.Optional;
-
 public class CustomSearchResultVariantProductPopulator extends SearchResultVariantProductPopulator {
     @Override
     public void populate(SearchResultValueData source, ProductData target) {
         super.populate(source, target);
-        target.setQuestionCount(Optional.ofNullable(this.<Integer>getValue(source, "questionCount")).orElse(0));
+        String temp=this.<String>getValue(source, "questionCount");
+        target.setQuestionCount(Integer.parseInt(temp));
+
+        //target.setQuestionCount(this.<Integer>getValue(source, "questionCount"));
     }
 }

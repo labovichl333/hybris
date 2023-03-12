@@ -18,6 +18,7 @@ public class ProductQuestionsPopulator<SOURCE extends ProductModel, TARGET exten
     @Override
     public void populate(SOURCE source, TARGET target) throws ConversionException {
         target.setQuestions(Converters.convertAll(source.getQuestions(), converter));
+        target.setQuestionCount(source.getQuestions().size());
     }
 
 

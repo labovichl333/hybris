@@ -17,8 +17,28 @@ $indexBaseSite =
 $indexLanguages = ja, en, de, zh
 $indexCurrencies = JPY, USD
 
-INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; type(code); localized[default = false]; fieldValueProvider
-                                 ; $solrIndexedType                          ; questionCount      ; int       ;                           ; productQuestionsCountValueProvider
+INSERT_UPDATE SolrValueRangeSet; name[unique = true]           ; qualifier      ; type; solrValueRanges(&rangeValueRefID)
+                               ; electronicsQuestionCountRange ; Question Count ; int ; rangeRefEQC1,rangeRefEQC2,rangeRefEQC3,rangeRefEQC4,rangeRefEQC5
+
+INSERT_UPDATE SolrValueRange; &rangeValueRefID; solrValueRangeSet(name)[unique = true]; name[unique = true]; from; to
+                            ; rangeRefEQC1    ; electronicsQuestionCountRange         ; 0-2                ; 0   ; 2
+                            ; rangeRefEQC2    ; electronicsQuestionCountRange         ; 2-5                ; 2   ; 5
+                            ; rangeRefEQC3    ; electronicsQuestionCountRange         ; 5-10               ; 5   ; 10
+                            ; rangeRefEQC4    ; electronicsQuestionCountRange         ; 10-20              ; 10  ; 20
+                            ; rangeRefEQC5    ; electronicsQuestionCountRange         ; 20-100             ; 20  ; 100
+
+
+INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; displayName                ; type(code); sortableType(code); currency[default = false]; localized[default = false]; multiValue[default = false]; facet[default = true]; facetType(code); facetSort(code); priority; visible; useForSpellchecking[default = false]; useForAutocomplete[default = false]; fieldValueProvider                 ; facetDisplayNameProvider; customFacetSortProvider; topValuesProvider        ; rangeSets(name)
+                                 ; $solrIndexedType                          ; questionCount      ; Search for questions Count ; int       ;                   ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; 4000    ; true   ;                                     ;                                    ; productQuestionsCountValueProvider ;                         ;                        ; defaultTopValuesProvider ; electronicsQuestionCountRange
+
+
+
+INSERT_UPDATE SolrSort; indexedType(identifier)[unique = true]; code[unique = true]; name           ; useBoost;
+                      ; $solrIndexedType                      ; questionCount-asc  ; Question Count ; false
+
+INSERT_UPDATE SolrSortField; sort(indexedType(identifier), code)[unique = true]; fieldName[unique = true]; ascending[unique = true]
+                           ; $solrIndexedType:questionCount-asc                ; questionCount           ; false
+
 
 #
 # Setup the Solr server, indexer, and search configs
