@@ -538,4 +538,11 @@
 		<property name="itemCleanupHooks" ref="csTicketRetentionHooks"/>
 		<property name="ticketBusinessService" ref="ticketBusinessService"/>
 	</bean>
+
+	<bean id="productQuestionsCountValueProvider"
+		  class="com.stackextend.training2.core.provider.ProductQuestionCountValueProvider"
+		  parent="abstractPropertyFieldValueProvider">
+
+	</bean>
+
 </beans>

@@ -21,5 +21,4 @@
 			</cms:pageSlot>
 		</div>
 	</div>
-
 </template:page>
