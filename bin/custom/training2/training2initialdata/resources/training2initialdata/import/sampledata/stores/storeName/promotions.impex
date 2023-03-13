@@ -4,35 +4,45 @@
 # ImpEx for Promotions
 
 # Macros / Replacement Parameter definitions
-$productCatalog=__PRODUCT_CATALOG_NAME__
-$defaultPromoGrp=__DEFAULT_PROMO_GRP__
+$productCatalog = electronicsProductCatalog
+$defaultPromoGrp = __DEFAULT_PROMO_GRP__
+$favCustomers = favoriteCustomers
+$bigSpenders = bigSpenders
+$catalogVersion = catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]), CatalogVersion.version[default=Staged])[default=$productCatalog:Staged]
 
-$favCustomers=favoriteCustomers
-$bigSpenders=bigSpenders
-$catalogVersion=catalogVersion(CatalogVersion.catalog(Catalog.id[default=$productCatalog]),CatalogVersion.version[default=Online])[default=$productCatalog:Online]
+INSERT_UPDATE UserPriceGroup; code[unique = true]
+                            ; testpriceGroupCode
 
-INSERT PromotionPriceRow;&tresholdId;Currency(isocode);price
+INSERT_UPDATE Customer; uid[unique = true]; Europe1PriceFactory_UPG(code)
+                      ; ilya@mail.ru      ; testpriceGroupCode
 
-INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+INSERT_UPDATE PriceRow; product(code, $catalogVersion)[unique = true]; ug(code)[allownull = true][unique = true]; net[unique = true, default = false]; currency(isocode)[unique = true]; price; unit(code[unique = true, default = pieces]); minqtd[unique = true]; unitFactor
+                      ; 1986316                                      ; testpriceGroupCode                       ;                                    ; USD                             ; 1900 ; pieces                                     ; 3                    ; 1
+                      ; 1986316                                      ; testpriceGroupCode                       ;                                    ; USD                             ; 1800 ; pieces                                     ; 5                    ; 1
 
-INSERT_UPDATE OrderThresholdDiscountPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true,unique=true];code[unique=true];title;description;messageFired[lang=en];messageFired[lang=de];messageFired[lang=ja];messageFired[lang=zh];priority;thresholdTotals(&tresholdId);discountPrices(&priceId)
 
-INSERT_UPDATE PromotionUserRestriction;positive;promotion(code)[unique=true];users(uid)
+INSERT PromotionPriceRow; &tresholdId; Currency(isocode); price
 
-INSERT PromotionPriceRow;&tresholdId;Currency(isocode);price
+INSERT PromotionPriceRow; &priceId; Currency(isocode); price
 
-INSERT_UPDATE ProductPercentageDiscountPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;percentageDiscount;priority;products(code,$catalogVersion)
+INSERT_UPDATE OrderThresholdDiscountPromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true, unique = true]; code[unique = true]; title; description; messageFired[lang = en]; messageFired[lang = de]; messageFired[lang = ja]; messageFired[lang = zh]; priority; thresholdTotals(&tresholdId); discountPrices(&priceId)
 
-INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+INSERT_UPDATE PromotionUserRestriction; positive; promotion(code)[unique = true]; users(uid)
 
-INSERT_UPDATE AcceleratorProductMultiBuyPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;categories(code,$catalogVersion);qualifyingCount;bundlePrices(&priceId)
+INSERT PromotionPriceRow; &tresholdId; Currency(isocode); price
 
-INSERT_UPDATE AcceleratorProductBOGOFPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;categories(code,$catalogVersion);qualifyingCount;freeCount
+INSERT_UPDATE ProductPercentageDiscountPromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true][unique = true]; code[unique = true]; title; description; percentageDiscount; priority; products(code, $catalogVersion)
 
-INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+INSERT PromotionPriceRow; &priceId; Currency(isocode); price
 
-INSERT_UPDATE ProductPerfectPartnerPromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true][unique=true];code[unique=true];title;description;priority;products(code,$catalogVersion);partnerProducts(code,$catalogVersion);partnerPrices(&priceId)
+INSERT_UPDATE AcceleratorProductMultiBuyPromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true][unique = true]; code[unique = true]; title; description; priority; categories(code, $catalogVersion); qualifyingCount; bundlePrices(&priceId)
 
-INSERT PromotionPriceRow;&priceId;Currency(isocode);price
+INSERT_UPDATE AcceleratorProductBOGOFPromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true][unique = true]; code[unique = true]; title; description; priority; categories(code, $catalogVersion); qualifyingCount; freeCount
 
-INSERT_UPDATE ProductBundlePromotion;PromotionGroup(Identifier[default=$defaultPromoGrp]);enabled[default=true,unique=true];code[unique=true];title;description;priority;products(code,$catalogVersion);bundlePrices(&priceId)
+INSERT PromotionPriceRow; &priceId; Currency(isocode); price
+
+INSERT_UPDATE ProductPerfectPartnerPromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true][unique = true]; code[unique = true]; title; description; priority; products(code, $catalogVersion); partnerProducts(code, $catalogVersion); partnerPrices(&priceId)
+
+INSERT PromotionPriceRow; &priceId; Currency(isocode); price
+
+INSERT_UPDATE ProductBundlePromotion; PromotionGroup(Identifier[default = $defaultPromoGrp]); enabled[default = true, unique = true]; code[unique = true]; title; description; priority; products(code, $catalogVersion); bundlePrices(&priceId)
