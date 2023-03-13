@@ -7,6 +7,7 @@ import de.hybris.platform.solrfacetsearch.config.exceptions.FieldValueProviderEx
 import de.hybris.platform.solrfacetsearch.provider.FieldNameProvider;
 import de.hybris.platform.solrfacetsearch.provider.FieldValue;
 import de.hybris.platform.solrfacetsearch.provider.FieldValueProvider;
+import de.hybris.platform.solrfacetsearch.provider.impl.AbstractPropertyFieldValueProvider;
 
 import javax.annotation.Resource;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ProductQuestionCountValueProvider implements FieldValueProvider, Serializable {
+public class ProductQuestionCountValueProvider extends AbstractPropertyFieldValueProvider implements FieldValueProvider, Serializable {
 
     @Resource(name = "solrFieldNameProvider")
     private FieldNameProvider fieldNameProvider;

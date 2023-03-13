@@ -540,7 +540,9 @@
 	</bean>
 
 	<bean id="productQuestionsCountValueProvider"
-		  class="com.stackextend.training2.core.provider.ProductQuestionCountValueProvider" >
+		  class="com.stackextend.training2.core.provider.ProductQuestionCountValueProvider"
+		  parent="abstractPropertyFieldValueProvider">
+
 	</bean>
 
 </beans>

@@ -22,14 +22,17 @@ INSERT_UPDATE SolrValueRangeSet; name[unique = true]           ; qualifier      
 
 INSERT_UPDATE SolrValueRange; &rangeValueRefID; solrValueRangeSet(name)[unique = true]; name[unique = true]; from; to
                             ; rangeRefEQC1    ; electronicsQuestionCountRange         ; 0-2                ; 0   ; 2
-                            ; rangeRefEQC2    ; electronicsQuestionCountRange         ; 2-5                ; 2   ; 5
-                            ; rangeRefEQC3    ; electronicsQuestionCountRange         ; 5-10               ; 5   ; 10
-                            ; rangeRefEQC4    ; electronicsQuestionCountRange         ; 10-20              ; 10  ; 20
-                            ; rangeRefEQC5    ; electronicsQuestionCountRange         ; 20-100             ; 20  ; 100
-
+                            ; rangeRefEQC2    ; electronicsQuestionCountRange         ; 3-5                ; 3   ; 5
+                            ; rangeRefEQC3    ; electronicsQuestionCountRange         ; 6-10               ; 6   ; 10
+                            ; rangeRefEQC4    ; electronicsQuestionCountRange         ; 11-20              ; 11  ; 20
+                            ; rangeRefEQC5    ; electronicsQuestionCountRange         ; 21-100             ; 21  ; 100
 
 INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; displayName                ; type(code); sortableType(code); currency[default = false]; localized[default = false]; multiValue[default = false]; facet[default = true]; facetType(code); facetSort(code); priority; visible; useForSpellchecking[default = false]; useForAutocomplete[default = false]; fieldValueProvider                 ; facetDisplayNameProvider; customFacetSortProvider; topValuesProvider        ; rangeSets(name)
-                                 ; $solrIndexedType                          ; questionCount      ; Search for questions Count ; int       ;                   ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; 4000    ; true   ;                                     ;                                    ; productQuestionsCountValueProvider ;                         ;                        ; defaultTopValuesProvider ; electronicsQuestionCountRange
+                                 ; $solrIndexedType                          ; questionCount      ; Questions count ; int       ;                   ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; 4000    ; true   ;                                     ;                                    ; productQuestionsCountValueProvider ;                         ;                        ; defaultTopValuesProvider ;
+
+
+INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name, solrIndexedType(identifier))[unique = true]; facet[default = true]; facetType(code); priority; facetDisplayNameProvider; facetSortProvider; facetTopValuesProvider   ; includeInResponse[default = true]; searchQueryTemplate(name, indexedType(identifier))[unique = true][default = DEFAULT:$solrIndexedType]
+                                     ; questionCount:$solrIndexedType                                   ;                      ; MultiSelectOr  ; 4000    ;                         ;                  ; defaultTopValuesProvider ;                                  ;
 
 
 
