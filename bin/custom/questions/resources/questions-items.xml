@@ -46,6 +46,12 @@
 				<attribute qualifier="answerCustomer" type="Customer">
 					<persistence type="property"/>
 				</attribute>
+				<attribute qualifier="approved" type="java.lang.Boolean">
+					<persistence type="property"/>
+					<defaultvalue>
+						java.lang.Boolean.FALSE
+					</defaultvalue>
+				</attribute>
 				
 			</attributes>
 			<indexes>
