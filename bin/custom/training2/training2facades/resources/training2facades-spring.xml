@@ -120,6 +120,13 @@
 		</property>
 	</bean>
 
+	<bean id="questionEmailContext"
+		  class="com.stackextend.training2.facades.process.email.context.QuestionEmailContext"
+		  parent="customerEmailContext"
+		  scope="prototype" >
+
+	</bean>
+
 	<bean id="customerEmailContext" class="com.stackextend.training2.facades.process.email.context.CustomerEmailContext" parent="abstractEmailContext" scope="prototype" >
 		<property name="customerConverter" ref="customerConverter"/>
 	</bean>
