@@ -510,8 +510,6 @@
 	<import resource="/training2core/processes/quote/quote-expired-email-process-spring.xml"/>
 
 	<import resource="/training2core/processes/quote/quote-post-cancellation-process-spring.xml"/>
-
-	<import resource="/training2core/processes/question/question-sending-email-process-spring.xml"/>
 	
 	<!-- Customer cleanup -->
 	<alias name="defaultCustomerCleanupRelatedObjectsAction" alias="customerCleanupRelatedObjectsAction"/>
