@@ -1,0 +1,13 @@
+## messageSource=classpath:/training2core/messages/email-question_$lang.properties
+<html>
+<head>
+</head>
+
+<body bgcolor="#ffffff">
+
+<h1>Hello ${ctx.firstName}</h1>
+
+<p>This is a Question Email from Hybris</p>
+
+</body>
+</html>

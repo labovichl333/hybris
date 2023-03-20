@@ -31,6 +31,17 @@
 
         <!-- Add your item definitions here -->
 
+        <itemtype code="QuestionEmailProcess"
+                  extends="StoreFrontCustomerProcess"
+                  jaloclass="com.stackextend.training2.core.jalo.QuestionEmailProcess">
+            <attributes>
+
+                <attribute qualifier="firstName" type="java.lang.String">
+                    <persistence type="property"/>
+                </attribute>
+
+            </attributes>
+        </itemtype>
 
         <!-- TypeGroups are for structure of this file only -->
 

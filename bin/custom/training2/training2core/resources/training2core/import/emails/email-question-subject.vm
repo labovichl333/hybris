@@ -1,0 +1,2 @@
+## messageSource=classpath:/training2core/messages/email-question_$lang.properties
+${ctx.messages.getMessage('emailSubject')}
