@@ -549,6 +549,12 @@
 
 	</bean>
 
+	<bean id="productWarrantyValueProvider"
+		  class="com.stackextend.training2.core.provider.ProductWarrantyProvider"
+		  parent="abstractPropertyFieldValueProvider">
+
+	</bean>
+
 	<bean id="questionEmailInterceptor" class="com.stackextend.training2.core.interceptor.QuestionEmailInterceptor">
 		<property name="modelService" ref="modelService" />
 		<property name="businessProcessService" ref="businessProcessService" />

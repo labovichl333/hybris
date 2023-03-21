@@ -43,6 +43,14 @@ INSERT_UPDATE SolrSortField; sort(indexedType(identifier), code)[unique = true];
                            ; $solrIndexedType:questionCount-asc                ; questionCount           ; false
 
 
+INSERT_UPDATE SolrIndexedProperty; solrIndexedType(identifier)[unique = true]; name[unique = true]; displayName    ; type(code); sortableType(code); currency[default = false]; localized[default = false]; multiValue[default = false]; facet[default = true]; facetType(code); facetSort(code); visible; useForSpellchecking[default = false]; useForAutocomplete[default = false]; fieldValueProvider      ;
+                                 ; $solrIndexedType                          ; warrantyYears      ; Warranty Years ; int       ; int               ;                          ;                           ;                            ;                      ; MultiSelectOr  ; Alpha          ; true   ;                                     ;                                    ; productWarrantyValueProvider ;
+
+
+INSERT_UPDATE SolrSearchQueryProperty; indexedProperty(name, solrIndexedType(identifier))[unique = true]; facet[default = true]; facetType(code); priority; facetDisplayNameProvider                ; facetSortProvider             ; facetTopValuesProvider   ; includeInResponse[default = true]; searchQueryTemplate(name, indexedType(identifier))[unique = true][default = DEFAULT:$solrIndexedType]
+                                     ; warrantyYears:$solrIndexedType                                   ;                      ; MultiSelectOr  ; 4000    ;                                        ;                               ; defaultTopValuesProvider ;                                  ;
+
+
 #
 # Setup the Solr server, indexer, and search configs
 #

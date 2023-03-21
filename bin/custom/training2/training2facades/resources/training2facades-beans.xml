@@ -15,5 +15,6 @@
 
 	<bean class="de.hybris.platform.commercefacades.product.data.ProductData">
 		<property name="questionCount" type="int" />
+		<property name="warrantyYears" type="int"/>
 	</bean>
 </beans>

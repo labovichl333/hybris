@@ -24,3 +24,8 @@ INSERT_UPDATE Question; code[unique = true]; product(code, $catalogVersion); que
                       ; Q1                 ; 23355                         ; anonymous            ;                    ; question1 ;
                       ; Q2                 ; 899387                        ; ilya@mail.ru         ; egor@mail.ru       ; question2 ; answer2
                       ; Q3                 ; 932577                        ; egor@mail.ru         ; anonymous          ; question3 ; answer3
+
+INSERT_UPDATE Product; code[unique = true]; $catalogVersion; warrantyYears
+                     ; 1992693             ;                ; 8
+                     ; 300938              ;                ; 2
+                     ; 816780              ;                ; 1

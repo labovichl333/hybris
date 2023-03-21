@@ -59,4 +59,18 @@
         <property name="add" ref="productQuestionsPopulator"/>
     </bean>
 
+
+    <alias name="defaultProductWarrantyPopulator" alias="productWarrantyPopulator"/>
+    <bean id="defaultProductWarrantyPopulator" parent="baseProductPopulator"
+          class="com.myapp.questions.populator.ProductWarrantyPopulator">
+    </bean>
+
+    <bean parent="configurablePopulatorModification">
+        <property name="target" ref="productVariantConfiguredPopulator"/>
+        <property name="keyType" value="de.hybris.platform.commercefacades.product.ProductOption"/>
+        <property name="key" value="WARRANTY"/>
+        <property name="add" ref="productWarrantyPopulator"/>
+    </bean>
+
+
 </beans>
